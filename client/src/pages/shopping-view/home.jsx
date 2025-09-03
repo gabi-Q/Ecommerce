@@ -85,7 +85,9 @@ function ShoppingHome() {
       })
     ).then((data) => {
       if (data?.payload?.success) {
-        dispatch(fetchCartItems(user?.id));
+        if (user?.id) {
+          dispatch(fetchCartItems(user.id));
+        }
         toast({
           title: "Product is added to cart",
         });
